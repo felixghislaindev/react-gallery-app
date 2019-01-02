@@ -18,7 +18,9 @@ ul {
 a {
   text-decoration: none;
 }
-
+.app-title {
+  padding-bottom: 25px;
+}
 .search-form {
   max-width: 460px;
   display: flex;
@@ -27,22 +29,26 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: #1e90ff;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
   cursor: pointer;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 input {
   font-size: 1em;
   width: 100%;
   background-color: #edeff0;
-  padding: 10px 15px;
+  padding: 12px 36px;
+  text-transform: uppercase;
+  font-size: 18px;
   border: 3px solid #d7dbdf;
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .main-nav li {
@@ -52,7 +58,7 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: #1e90ff;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
@@ -61,7 +67,7 @@ input {
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  background-color: #0d6dcc;
 }
 
 .photo-container ul {
@@ -73,15 +79,15 @@ input {
 }
 
 .photo-container ul li {
-  width: 220px;
-  height: 165px;
+  width: 300px;
+  height: 230px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
 .photo-container ul img {
   width: 100%;
-  transform: scale(1.25);
+  transform: scale(1);
   transition: transform 1.25s;
 }
 

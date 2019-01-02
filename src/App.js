@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./css/index.css";
 
 // importing react router
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // importing api key
 import apiKey from "./config/config";
@@ -13,6 +13,7 @@ import axios from "axios";
 import SearchForm from "./components/SearchForm";
 import NavBar from "./components/navBar";
 import ImagesContainer from "./components/Cotainer";
+import Loading from "./components/Loding";
 
 class App extends Component {
   state = {
@@ -49,7 +50,8 @@ class App extends Component {
         const images = photoData.photo;
         // updating state with the returned images
         this.setState({
-          default1: images
+          default1: images,
+          loading: false
         });
         return axios.get(url2);
       })
@@ -77,8 +79,7 @@ class App extends Component {
       .then(data => data.data.photos)
       .then(res => {
         this.setState({
-          searchResult: res.photo,
-          loading: false
+          searchResult: res.photo
         });
       })
       .catch(err => console.log("could not fetch data"));
@@ -93,47 +94,52 @@ class App extends Component {
           <SearchForm search={this.handleSearch} />
           <NavBar />
           {/* routes */}
-          {this.state.loading ? (
+          <Switch>
+            {this.state.loading ? (
+              <Loading />
+            ) : (
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <ImagesContainer
+                    title="Cats images"
+                    images={this.state.default1}
+                  />
+                )}
+              />
+            )}
             <Route
-              exact
-              path="/"
+              path="/dogs"
               render={() => (
                 <ImagesContainer
-                  title="Cats images"
-                  images={this.state.default1}
+                  title="Dogs images"
+                  images={this.state.default2}
                 />
               )}
             />
-          ) : (
-            <h1>loaddin..</h1>
-          )}
-          <Route
-            path="/dogs"
-            render={() => (
-              <ImagesContainer
-                title="Dogs images"
-                images={this.state.default2}
-              />
-            )}
-          />
-          <Route
-            path="/computer"
-            render={() => (
-              <ImagesContainer
-                title="Computer images"
-                images={this.state.default3}
-              />
-            )}
-          />
-          <Route
-            path="/search"
-            render={() => (
-              <ImagesContainer
-                title=" search images"
-                images={this.state.searchResult}
-              />
-            )}
-          />
+            <Route
+              path="/computer"
+              render={() => (
+                <ImagesContainer
+                  title="Computer images"
+                  images={this.state.default3}
+                />
+              )}
+            />
+            <Route
+              path="/search"
+              render={() => (
+                <ImagesContainer
+                  title=" search images"
+                  task="search"
+                  images={this.state.searchResult}
+                />
+              )}
+            />
+            {/* catching 404 route */}
+            <Route render={() => <h1>The url Does not exist</h1>} />
+          </Switch>
         </div>
       </Router>
     );

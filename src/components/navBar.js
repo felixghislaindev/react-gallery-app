@@ -5,7 +5,9 @@ const NavForm = () => {
     <nav className="main-nav">
       <ul>
         <li>
-          <NavLink to="/">Cats</NavLink>
+          <NavLink exact to="/">
+            Cats
+          </NavLink>
         </li>
         <li>
           <NavLink to="/dogs">Dogs</NavLink>
