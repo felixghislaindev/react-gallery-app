@@ -1,3 +1,7 @@
+// this is a controlled form compponent , it has his own state which will be use
+// to store the input value from the form which will then be passed and use
+// in the parent component app.js and used for serch functionality
+
 import React, { Component } from "react";
 // redirecting after submition
 import { withRouter } from "react-router-dom";

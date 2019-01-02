@@ -1,3 +1,5 @@
+// this component is a representation of a image in out application
+// it will be used to and map over to generate the pictures for the application
 import React from "react";
 const Photo = props => {
   const { imgDet } = props;

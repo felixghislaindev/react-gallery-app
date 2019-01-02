@@ -1,3 +1,7 @@
+// this is the main compoenent of the app, it handle everything to do with making
+// api call distributing correct data to other compponent in the app(children)
+// setting routes and managin the appilcation
+
 import React, { Component } from "react";
 import "./css/index.css";
 

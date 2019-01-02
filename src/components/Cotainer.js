@@ -1,3 +1,5 @@
+// this component will re responsible redndering images from the props that
+// it will receive from app.js
 import React from "react";
 
 // importing components

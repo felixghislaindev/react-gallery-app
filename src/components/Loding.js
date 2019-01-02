@@ -1,3 +1,5 @@
+// this component will be used to display a loading message while data
+// is being pulled/ request during the api call
 import React from "react";
 
 const Loading = () => {

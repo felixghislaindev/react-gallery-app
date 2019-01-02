@@ -1,3 +1,5 @@
+// this componenet will be used to render an error message when
+// the serach made by the user does not have any result
 import React from "react";
 const NotFound = () => {
   return (

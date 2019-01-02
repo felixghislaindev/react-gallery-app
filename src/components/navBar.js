@@ -1,3 +1,4 @@
+// this component hold the navigation of the apllciation
 import React from "react";
 import { NavLink } from "react-router-dom";
 const NavForm = () => {
@@ -13,7 +14,7 @@ const NavForm = () => {
           <NavLink to="/dogs">Dogs</NavLink>
         </li>
         <li>
-          <NavLink to="/computer">Computers</NavLink>
+          <NavLink to="/computer">Boats</NavLink>
         </li>
       </ul>
     </nav>
